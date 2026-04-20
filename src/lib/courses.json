@@ -1,0 +1,55 @@
+[
+    {
+        "title":"Guidewire",
+        "id":1,
+        "imageUrl":"/courses/Guidewire.png",
+        "duration":"3 months",
+        "level":"Advanced",
+        "description":"Become a certified Guidewire Developer and Insurance expert. Master PolicyCenter, ClaimCenter, and BillingCenter with hands-on projects in Gosu programming, system configuration, and integration best practices.",
+        "technologies":[
+            {
+                "iconUrl":"/courses/Gosu.png"
+            },
+            {
+                "iconUrl":"/courses/SoapUI.png"
+            },
+            {
+                "iconUrl":"/courses/SqlServer.png"
+            },
+            {
+                "iconUrl":"/courses/Rest.png"
+            }
+        ]
+    },
+    {
+        "title":"Java Full Stack Development",
+        "id":2,
+        "imageUrl":"/courses/JavaFullStack.png",
+        "duration":"3 months",
+        "level":"Advanced",
+        "description":"Become a job-ready Full Stack Developer. Master Java, Spring Boot, Angular, and modern web technologies with expert guidance and real-world projects.",
+        "technologies":[
+            {
+                "iconUrl":"/courses/Java.png"
+            },
+            {
+                "iconUrl":"/courses/JavaScript.png"
+            },
+            {
+                "iconUrl":"/courses/Html.png"
+            },
+            {
+                "iconUrl":"/courses/Css.png"
+            },
+            {
+                "iconUrl":"/courses/Spring.png"
+            },
+            {
+                "iconUrl":"/courses/Angular.png"
+            },
+            {
+                "iconUrl":"/courses/MySQL.png"
+            }
+        ]
+    }
+]

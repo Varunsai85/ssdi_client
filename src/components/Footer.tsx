@@ -1,19 +1,11 @@
 import { Instagram, Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router";
 import XIcon from "./ui/XIcon";
-import { useEffect } from "react";
-import { useStore } from "@/store/useStore";
 import { slugify } from "@/lib/utils";
-import { Skeleton } from "./ui/skeleton";
 import { FacebookIcon, LinkedInIcon } from "./ui/icons";
+import courses from "@/lib/courses.json"
 
 const Footer = () => {
-  const { courses, fetchCourses, isLoading } = useStore();
-  
-      useEffect(() => {
-          fetchCourses();
-      }, [fetchCourses]);
-  
     const quickLinks = [
       {
         title:"Home",
@@ -105,20 +97,14 @@ const Footer = () => {
            <div>
             <h3 className="font-semibold mb-4">Popular Courses</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              {isLoading ? (
-                <div className="flex flex-wrap justify-between gap-2">
-                    {[1, 2, 3, 4, 5].map((idx) => (
-                        <Skeleton key={idx} className="h-4 w-3/4" />
-                    ))}
-                </div>
-            ) : (courses.map((course) => (
+              {courses.map((course) => (
                 <li key={course.id}>
                    <Link to={`/courses/${slugify(course.title)}`} 
                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}className="hover:text-primary transition-colors">
                     {course.title}
                   </Link>
                 </li>
-              )))}
+              ))}
             </ul>
           </div>
 

@@ -18,8 +18,7 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Courses", path: "/courses" },
-    { name: "About Us", path: "/about" },
-    { name: "Contact", path: "/contact" },
+    { name: "About Us", path: "/about" }
   ];
 
   return (
@@ -38,7 +37,7 @@ const Navbar = () => {
             className="flex items-center gap-2"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <img src="favicon.ico" className="w-10"/>
+            <img src="Logo.png" className="w-10"/>
             <span className="text-xl font-bold bg-linear-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
               SSD Technologies
             </span>

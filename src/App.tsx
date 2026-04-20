@@ -5,7 +5,6 @@ import Footer from './components/Footer';
 import CoursesSection from './pages/CoursesSection';
 import FeaturesSection from './pages/FeaturesSection';
 import CourseDetail from './pages/CourseDetail';
-import Contact from './pages/Contact';
 import LoadingBar from 'react-top-loading-bar';
 import { useState } from 'react';
 
@@ -25,7 +24,6 @@ function App() {
           <Route path='about' element={<FeaturesSection />} />
           <Route path='courses' element={<CoursesSection setProgress={setProgress} />} />
           <Route path='courses/:slug' element={<CourseDetail setProgress={setProgress} />} />
-          <Route path='contact' element={<Contact setProgress={setProgress} />} />
         </Routes>
       </main>
       <Footer />

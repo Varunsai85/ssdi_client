@@ -1,18 +1,11 @@
-import { useEffect } from "react";
-import { useStore } from "../store/useStore";
 import { motion } from "framer-motion";
 import { Clock, BarChart, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router";
 import { slugify } from "../lib/utils";
+import  courses  from "@/lib/courses.json";
+import { useEffect } from "react";
 
 const CoursesSection = ({ setProgress }: { setProgress: (progress: number) => void }) => {
-    const { courses, fetchCourses, isLoading } = useStore();
-
-    useEffect(() => {
-        setProgress(30);
-        fetchCourses().then(() => setProgress(100));
-    }, [fetchCourses, setProgress]);
-
     const container = {
         hidden: { opacity: 0 },
         show: {
@@ -22,6 +15,11 @@ const CoursesSection = ({ setProgress }: { setProgress: (progress: number) => vo
             }
         }
     };
+    useEffect(() => {
+        setProgress(30);
+        const timer = setTimeout(() => setProgress(100), 500);
+        return () => clearTimeout(timer);
+      }, []);
 
     const item = {
         hidden: { opacity: 0, y: 20 },
@@ -37,14 +35,6 @@ const CoursesSection = ({ setProgress }: { setProgress: (progress: number) => vo
                     Choose from our wide range of industry-oriented courses designed to help you master the latest technologies.
                 </p>
             </div>
-            
-            {isLoading ? (
-                <div className="flex flex-wrap justify-center gap-8">
-                    {[1, 2, 3, 4].map((i) => (
-                        <div key={i} className="h-96 rounded-2xl bg-gray-200 dark:bg-gray-800 animate-pulse w-full md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] max-w-sm" />
-                    ))}
-                </div>
-            ) : (
                 <motion.div 
                     variants={container}
                     initial="hidden"
@@ -84,13 +74,12 @@ const CoursesSection = ({ setProgress }: { setProgress: (progress: number) => vo
                                     to={`/courses/${slugify(course.title)}`}
                                     className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all"
                                 >
-                                    View Syllabus <ArrowUpRight className="w-4 h-4" />
+                                    View Course <ArrowUpRight className="w-4 h-4" />
                                 </Link>
                             </div>
                         </motion.div>
                     ))}
                 </motion.div>
-            )}
             
             <div className="mt-12 text-center">
                  <Link

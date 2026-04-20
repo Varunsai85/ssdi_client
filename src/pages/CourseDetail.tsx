@@ -1,25 +1,18 @@
 import { useParams } from "react-router";
-import { useStore } from "../store/useStore";
-import { useEffect, useMemo } from "react";
+import { useMemo,useEffect } from "react";
 import OrbitingCircles from "../components/OrbitingCircles";
 import { Clock, BarChart } from "lucide-react";
 import { slugify } from "../lib/utils";
 import { motion } from "framer-motion";
-import { Link } from "react-router";
+import  courses  from "@/lib/courses.json";
 
 const CourseDetail = ({ setProgress }: { setProgress: (progress: number) => void }) => {
   const { slug } = useParams();
-  const { courses, fetchCourses } = useStore();
-
   useEffect(() => {
     setProgress(30);
-    if (courses.length === 0) {
-      fetchCourses().finally(() => setProgress(100));
-    } else {
-      setProgress(100);
-    }
-  }, [fetchCourses, courses.length, setProgress]);
-
+    const timer = setTimeout(() => setProgress(100), 500);
+    return () => clearTimeout(timer);
+  }, []);
   const course = useMemo(() => {
   if (!slug || courses.length === 0) return null;
   return courses.find((c) => slugify(c.title) === slug) || null;
@@ -80,9 +73,6 @@ const CourseDetail = ({ setProgress }: { setProgress: (progress: number) => void
                         <BarChart className="w-5 h-5" /> {course.level || "All Levels"}
                     </span>
                 </div>
-                <Link to={"/contact"} className="px-8 py-3 bg-primary text-primary-foreground rounded-full font-bold text-lg hover:bg-primary/90 transition-transform hover:scale-105">
-                    Enroll Now
-                </Link>
             </motion.div>
             <motion.div 
                 initial={{ opacity: 0, scale: 0.8 }}

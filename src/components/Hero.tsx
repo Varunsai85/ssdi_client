@@ -46,12 +46,6 @@ const Hero = () => {
               >
                 Explore Courses <ArrowRight className="w-5 h-5" />
               </Link>
-              <Link
-                to="/contact"
-                className="px-8 py-4 rounded-full bg-background border border-input hover:bg-accent hover:text-accent-foreground font-semibold text-lg transition-all hover:scale-105"
-              >
-                Book a Demo
-              </Link>
             </div>
           </motion.div>
 
