@@ -20,10 +20,6 @@ const Footer = () => {
         url:"/about"
       },
       {
-        title:"Contact",
-        url:"/contact"
-      },
-      {
         title:"Blog",
         url:"/blog"
       }
